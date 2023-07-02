@@ -34,7 +34,7 @@ class DailyReminder : BroadcastReceiver() {
     fun setDailyReminder(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, DailyReminder::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
+        var pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, PendingIntent.FLAG_MUTABLE)
 
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, 6)
@@ -53,7 +53,7 @@ class DailyReminder : BroadcastReceiver() {
     fun cancelAlarm(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, DailyReminder::class.java)
-        val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, 0)
+        val pendingIntent = PendingIntent.getBroadcast(context, ID_REPEATING, intent, PendingIntent.FLAG_MUTABLE)
 
         alarmManager.cancel(pendingIntent)
         pendingIntent.cancel()
@@ -64,7 +64,7 @@ class DailyReminder : BroadcastReceiver() {
 
         val intent = Intent(context, HomeActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        val pendingIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, intent, PendingIntent.FLAG_MUTABLE)
 
         val notificationStyle = NotificationCompat.InboxStyle()
         val timeString = context.resources.getString(R.string.notification_message_format)
