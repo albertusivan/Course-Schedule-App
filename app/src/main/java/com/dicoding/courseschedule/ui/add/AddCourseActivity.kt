@@ -49,8 +49,8 @@ class AddCourseActivity : AppCompatActivity() , TimePickerFragment.DialogTimeLis
             R.id.action_insert -> {
                 val courseName = findViewById<TextInputEditText>(R.id.ed_course_name).text.toString().trim()
                 val courseDay = findViewById<Spinner>(R.id.spinner_day).selectedItemPosition
-                val courseStartTime = findViewById<TextView>(R.id.tv_start_time_value).text.toString().trim()
-                val courseEndTime = findViewById<TextView>(R.id.tv_end_time_value).text.toString().trim()
+                val courseStartTime = findViewById<TextView>(R.id.tv_start_time).text.toString().trim()
+                val courseEndTime = findViewById<TextView>(R.id.tv_end_time).text.toString().trim()
                 val courseLecturer = findViewById<TextInputEditText>(R.id.ed_lecturer).text.toString().trim()
                 val courseNote = findViewById<TextInputEditText>(R.id.ed_note).text.toString().trim()
 
@@ -77,8 +77,8 @@ class AddCourseActivity : AppCompatActivity() , TimePickerFragment.DialogTimeLis
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
 
         val textViewId = when (view.id) {
-            R.id.ib_start_time -> R.id.tv_start_time_value
-            R.id.ib_end_time-> R.id.tv_end_time_value
+            R.id.ib_start_time -> R.id.tv_start_time
+            R.id.ib_end_time -> R.id.tv_end_time
             else -> null
         }
 

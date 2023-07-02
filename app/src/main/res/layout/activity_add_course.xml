@@ -58,7 +58,7 @@
             tools:ignore="UsingOnClickInXml" />
 
         <TextView
-            android:id="@+id/tv_start_time"
+            android:id="@+id/tv_start_time_text"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_toEndOf="@id/ib_start_time"
@@ -67,10 +67,10 @@
             android:textColor="@color/textPrimary" />
 
         <TextView
-            android:id="@+id/tv_start_time_value"
+            android:id="@+id/tv_start_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_start_time"
+            android:layout_below="@id/tv_start_time_text"
             android:layout_toEndOf="@id/ib_start_time"
             android:textColor="@color/textPrimary"
             tools:text="@string/timeHint" />
@@ -82,14 +82,14 @@
             android:layout_height="match_parent"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_toEndOf="@id/tv_start_time"
+            android:layout_toEndOf="@id/tv_start_time_text"
             android:contentDescription="@string/end_time"
             android:onClick="timePicker"
             android:src="@drawable/ic_time"
             tools:ignore="UsingOnClickInXml" />
 
         <TextView
-            android:id="@+id/tv_end_time"
+            android:id="@+id/tv_end_time_text"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:layout_toEndOf="@id/ib_end_time"
@@ -98,10 +98,10 @@
             android:textColor="@color/textPrimary" />
 
         <TextView
-            android:id="@+id/tv_end_time_value"
+            android:id="@+id/tv_end_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_end_time"
+            android:layout_below="@id/tv_end_time_text"
             android:layout_toEndOf="@id/ib_end_time"
             android:gravity="center_vertical"
             android:textColor="@color/textPrimary"
