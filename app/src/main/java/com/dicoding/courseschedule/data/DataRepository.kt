@@ -16,7 +16,7 @@ import java.util.*
 class DataRepository(private val dao: CourseDao) {
 
     fun getNearestSchedule(queryType: QueryType) : LiveData<Course?> {
-        val nearestQuery = QueryUtil.nearestQuery(type = queryType)
+        val nearestQuery = nearestQuery(queryType)
         return dao.getNearestSchedule(nearestQuery)
     }
 

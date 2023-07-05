@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.courseschedule.R
 import com.dicoding.courseschedule.data.Course
@@ -32,7 +33,8 @@ class HomeActivity : AppCompatActivity() {
         val factory = HomeViewModelFactory.createFactory(this)
         viewModel = ViewModelProvider(this, factory)[HomeViewModel::class.java]
 
-        viewModel.getNearestSchedule(queryType).observe(this) {
+        viewModel.setQueryType(queryType)
+        viewModel.getNearestSchedule().observe(this) {
             showTodaySchedule(it)
         }
     }

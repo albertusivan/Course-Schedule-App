@@ -2,6 +2,7 @@ package com.dicoding.courseschedule.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.dicoding.courseschedule.data.Course
 import com.dicoding.courseschedule.data.DataRepository
@@ -19,7 +20,9 @@ class HomeViewModel(private val repository: DataRepository): ViewModel() {
         _queryType.value = queryType
     }
 
-    fun getNearestSchedule(queryType: QueryType): LiveData<Course?> {
-        return repository.getNearestSchedule(queryType)
-    }
+        fun getNearestSchedule(): LiveData<Course?> {
+            return Transformations.switchMap(_queryType){
+                repository.getNearestSchedule(it)
+            }
+        }
 }
